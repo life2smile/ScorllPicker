@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScrollPicker</string>
+    <string name="default_scroll_picker">默认滚动选择器</string>
+    <string name="custom_scroll_picker">自定义滚动选择器</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".demo.sample1.SampleActivity">
+
+    <TextView
+        android:id="@+id/default_scroll_picker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:text="@string/default_scroll_picker" />
+
+    <TextView
+        android:id="@+id/custom_scroll_picker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:text="@string/custom_scroll_picker" />
+
+</LinearLayout>
