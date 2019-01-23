@@ -108,8 +108,6 @@ public class ScrollPickerView extends RecyclerView {
         measureSize();
 
         setMeasuredDimension(mItemWidth, mItemHeight * getVisibleItemNumber());
-
-        initPaint();
     }
 
     private void measureSize() {
@@ -170,7 +168,7 @@ public class ScrollPickerView extends RecyclerView {
         if (operation != null) {
             return operation.getSelectedItemOffset();
         }
-        return 0;
+        return 1;
     }
 
     private int getLineColor() {
@@ -193,5 +191,11 @@ public class ScrollPickerView extends RecyclerView {
             float itemViewY = getChildAt(i).getTop() + mItemHeight / 2;
             updateView(getChildAt(i), mFirstLineY < itemViewY && itemViewY < mSecondLineY);
         }
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        initPaint();
     }
 }
