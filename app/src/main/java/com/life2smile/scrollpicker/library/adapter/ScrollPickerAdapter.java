@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.life2smile.scrollpicker.library.IPickerViewOperation;
 import com.life2smile.scrollpicker.library.IViewProvider;
-import com.life2smile.scrollpicker.library.view.DefaultItemView;
+import com.life2smile.scrollpicker.library.provider.DefaultItemViewProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class ScrollPickerAdapter<T> extends RecyclerView.Adapter<ScrollPickerAda
     @Override
     public ScrollPickerAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (mViewProvider == null) {
-            mViewProvider = new DefaultItemView();
+            mViewProvider = new DefaultItemViewProvider();
         }
         return new ScrollPickerAdapterHolder(LayoutInflater.from(mContext).inflate(mViewProvider.resLayout(), parent, false));
     }

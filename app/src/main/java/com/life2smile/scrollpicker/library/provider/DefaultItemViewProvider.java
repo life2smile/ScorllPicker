@@ -1,4 +1,4 @@
-package com.life2smile.scrollpicker.library.view;
+package com.life2smile.scrollpicker.library.provider;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.life2smile.scrollpicker.R;
 import com.life2smile.scrollpicker.library.IViewProvider;
 
-public class DefaultItemView implements IViewProvider<String> {
+public class DefaultItemViewProvider implements IViewProvider<String> {
     @Override
     public int resLayout() {
         return R.layout.scroll_picker_default_item_layout;
