@@ -19,6 +19,7 @@ public class ScrollPickerAdapter<T> extends RecyclerView.Adapter<ScrollPickerAda
     private List<T> mDataList;
     private Context mContext;
     private OnClickListener mOnItemClickListener;
+    private OnScrollListener mOnScrollListener;
     private int mSelectedItemOffset;
     private int mVisibleItemNum = 3;
     private IViewProvider mViewProvider;
@@ -69,6 +70,9 @@ public class ScrollPickerAdapter<T> extends RecyclerView.Adapter<ScrollPickerAda
     public void updateView(View itemView, boolean isSelected) {
         mViewProvider.updateView(itemView, isSelected);
         adaptiveItemViewSize(itemView);
+        if (isSelected && mOnScrollListener != null) {
+            mOnScrollListener.onScrolled(itemView);
+        }
         itemView.setOnClickListener(isSelected ? new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +109,10 @@ public class ScrollPickerAdapter<T> extends RecyclerView.Adapter<ScrollPickerAda
 
     public interface OnClickListener {
         void onSelectedItemClicked(View v);
+    }
+
+    public interface OnScrollListener {
+        void onScrolled(View currentItemView);
     }
 
     public static class ScrollPickerAdapterBuilder<T> {
@@ -145,8 +153,8 @@ public class ScrollPickerAdapter<T> extends RecyclerView.Adapter<ScrollPickerAda
             return this;
         }
 
-        public ScrollPickerAdapterBuilder<T> setSelectedItemTextSize(int size) {
-
+        public ScrollPickerAdapterBuilder<T> setOnScrolledListener(OnScrollListener listener) {
+            mAdapter.mOnScrollListener = listener;
             return this;
         }
 
